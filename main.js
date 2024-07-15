@@ -17,22 +17,20 @@ const updateDateTime = () => {
 setInterval(updateDateTime, 1000);
 updateDateTime();
 
-const currentLanguage = navigator.language || navigator.languages[0];
-
 const getLangFromUrl = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const langCode = urlParams.get("lang");
 
   const supportedLanguages = ["en", "fr", "de", "es", "pt", "ja"];
-  const currentLanguage =
-    navigator.language || navigator.languages[0].slice(0, 2);
+  // const currentLanguage =
+  //   navigator.language || navigator.languages[0].slice(0, 2);
+  const currentLanguage = langCode;
   const defaultLang = supportedLanguages.includes(currentLanguage)
     ? currentLanguage
     : "en";
 
   return langCode || defaultLang;
 };
-
 const langFromUrl = getLangFromUrl();
 
 const switchLanguage = lang => {
@@ -109,3 +107,5 @@ const changeStylesDE = () => {
   }
 };
 changeStylesDE();
+
+window.addEventListener("resize", () => window.location.reload());
