@@ -21,7 +21,16 @@ const currentLanguage = navigator.language || navigator.languages[0];
 
 const getLangFromUrl = () => {
   const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get("lang") || currentLanguage.slice(0, 2);
+  const langCode = urlParams.get("lang");
+
+  const supportedLanguages = ["en", "fr", "de", "es", "pt", "ja"];
+  const currentLanguage =
+    navigator.language || navigator.languages[0].slice(0, 2);
+  const defaultLang = supportedLanguages.includes(currentLanguage)
+    ? currentLanguage
+    : "en";
+
+  return langCode || defaultLang;
 };
 
 const langFromUrl = getLangFromUrl();
@@ -80,10 +89,10 @@ const changeStylesDE = () => {
   const main__offers__weeklyContainer = document.querySelector(
     ".main__offers__weeklyContainer"
   );
-  if (width >= 430 && height >= 932 && lang === "de") {
+  if (width >= 430 && height >= 932 && langFromUrl === "de") {
     mainHeading.style.fontSize = "52px";
   }
-  if (width < 430 && height < 932 && lang === "de") {
+  if (width < 430 && height < 932 && langFromUrl === "de") {
     mainHeading.style.fontSize = "22px";
     weeklyAccess.style.fontSize = "13px";
     yearlyAccess.style.fontSize = "13px";
@@ -95,7 +104,7 @@ const changeStylesDE = () => {
     main__offers__weeklyContainer__heading.style.textAlign = "center";
     main__offers__weeklyContainer.style.gap = "0";
   }
-  if (width === 375 && height === 812 && lang === "de") {
+  if (width === 375 && height === 812 && langFromUrl === "de") {
     mainHeading.style.margin = "65px 39px 40.7px";
   }
 };
