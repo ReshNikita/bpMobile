@@ -154,7 +154,28 @@ const changeStylesPT = () => {
   if (width === 375 && height === 667 && langFromUrl === "pt") {
     mainHeading.style.margin = "20px 39px 26.7px";
   }
+  if (width === 390 && height === 844 && langFromUrl === "pt") {
+    weeklyContainer__price.style.paddingLeft = "26px";
+  }
 };
 changeStylesPT();
+
+const changeStylesES = () => {
+  if (langFromUrl === "es") {
+    weeklyContainer__price.style.paddingLeft = "5px";
+  }
+};
+changeStylesES();
+
+const changeStylesJA = () => {
+  const middleArt = document.querySelector(".middleArt");
+  if (langFromUrl === "ja") {
+    middleArt.style.width = "auto";
+    yearBR.style.display = "none";
+    weekBR.style.display = "none";
+    yearlyContainer__price.style.paddingLeft = "19px";
+  }
+};
+changeStylesJA();
 
 window.addEventListener("resize", () => window.location.reload());
