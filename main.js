@@ -20,10 +20,7 @@ updateDateTime();
 const getLangFromUrl = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const langCode = urlParams.get("lang");
-
   const supportedLanguages = ["en", "fr", "de", "es", "pt", "ja"];
-  // const currentLanguage =
-  //   navigator.language || navigator.languages[0].slice(0, 2);
   const currentLanguage = langCode;
   const defaultLang = supportedLanguages.includes(currentLanguage)
     ? currentLanguage
@@ -87,8 +84,13 @@ const changeStylesDE = () => {
   const main__offers__weeklyContainer = document.querySelector(
     ".main__offers__weeklyContainer"
   );
+  const weekBR = document.getElementById("weekBR");
+  const weeklyPrice = document.querySelector(".weeklyPrice");
   if (width >= 430 && height >= 932 && langFromUrl === "de") {
-    mainHeading.style.fontSize = "52px";
+    mainHeading.style.margin = "149px 59px 40.7px";
+    weekBR.style.display = "none";
+    weeklyPrice.style.display = "inline-block";
+    weeklyPrice.style.width = "80px";
   }
   if (width < 430 && height < 932 && langFromUrl === "de") {
     mainHeading.style.fontSize = "22px";
