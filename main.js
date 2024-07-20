@@ -63,29 +63,35 @@ const switchLanguage2 = lang => {
 
 switchLanguage2(langFromUrl);
 
+const main__offers = document.querySelector(".main__offers");
+const width = window.innerWidth;
+const height = window.innerHeight;
+const mainHeading = document.getElementById("Get Unlimited Access");
+const weeklyAccess = document.getElementById("WEEKLY ACCESS");
+const yearlyAccess = document.getElementById("YEARLY ACCESS");
+const pricePerYear = document.querySelector(
+  ".main__offers__yearlyContainer__pricePerYear"
+);
+const yearlyContainer__price = document.querySelector(
+  ".main__offers__yearlyContainer__price"
+);
+const weeklyContainer__price = document.querySelector(
+  ".main__offers__weeklyContainer__price"
+);
+const main__offers__weeklyContainer__heading = document.querySelector(
+  ".main__offers__weeklyContainer__heading"
+);
+const main__offers__weeklyContainer = document.querySelector(
+  ".main__offers__weeklyContainer"
+);
+const weekBR = document.getElementById("weekBR");
+const yearBR = document.getElementById("yearBR");
+const weeklyPrice = document.querySelector(".weeklyPrice");
+const yearlyPrice = document.querySelector(".yearlyPrice");
+const footer__list = document.querySelector(".footer__list ");
+const footer__container = document.querySelector(".footer__container");
+
 const changeStylesDE = () => {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  const mainHeading = document.getElementById("Get Unlimited Access");
-  const weeklyAccess = document.getElementById("WEEKLY ACCESS");
-  const yearlyAccess = document.getElementById("YEARLY ACCESS");
-  const pricePerYear = document.querySelector(
-    ".main__offers__yearlyContainer__pricePerYear"
-  );
-  const yearlyContainer__price = document.querySelector(
-    ".main__offers__yearlyContainer__price"
-  );
-  const weeklyContainer__price = document.querySelector(
-    ".main__offers__weeklyContainer__price"
-  );
-  const main__offers__weeklyContainer__heading = document.querySelector(
-    ".main__offers__weeklyContainer__heading"
-  );
-  const main__offers__weeklyContainer = document.querySelector(
-    ".main__offers__weeklyContainer"
-  );
-  const weekBR = document.getElementById("weekBR");
-  const weeklyPrice = document.querySelector(".weeklyPrice");
   if (width >= 430 && height >= 932 && langFromUrl === "de") {
     mainHeading.style.margin = "149px 59px 40.7px";
     weekBR.style.display = "none";
@@ -109,5 +115,30 @@ const changeStylesDE = () => {
   }
 };
 changeStylesDE();
+
+const changeStylesFR = () => {
+  if (langFromUrl === "fr") {
+    weekBR.style.display = "none";
+    yearBR.style.display = "none";
+    weeklyPrice.style.display = "inline-block";
+    yearlyPrice.style.display = "inline-block";
+    weeklyContainer__price.style.paddingLeft = "0px";
+    footer__list.style.gap = "10px";
+  }
+  if (width === 390 && height === 844 && langFromUrl === "fr") {
+    mainHeading.style.margin = "65px 39px 40.7px";
+    document
+      .querySelectorAll(".footer__list__item")
+      .forEach(el => (el.style.letterSpacing = "normal"));
+  }
+  if (width === 375 && height === 667 && langFromUrl === "fr") {
+    main__offers.style.margin = "20.7px 24px 8px";
+  }
+  if (width === 375 && height === 812 && langFromUrl === "fr") {
+    mainHeading.style.margin = "65px 39px 40.7px";
+    footer__container.style.margin = "15px";
+  }
+};
+changeStylesFR();
 
 window.addEventListener("resize", () => window.location.reload());
