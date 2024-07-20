@@ -36,7 +36,7 @@
   max-width: 350px;
   margin: 0px auto;
   box-sizing: content-box;
-  background-image: url("/images/bg.png");
+  background-image: url("/images/bg1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -66,7 +66,7 @@
   ._container {
     overflow: hidden;
     max-width: 375px;
-    background-image: url("./images/bg8.png");
+    background-image: url("./images/bg-8.jpg");
   }
 }
 
@@ -145,14 +145,14 @@
 @media (max-width: 414px) and (max-height: 736px) {
   ._container {
     height: 736px;
-    background-image: url("./images//bg8.png");
+    background-image: url("./images//bg-8.jpg");
   }
 }
 
 @media (max-width: 375px) and (max-height: 667px) {
   ._container {
     height: 667px;
-    background-image: url("./images//bg8.png");
+    background-image: url("./images//bg-8.jpg");
   }
 }
 
